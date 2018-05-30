@@ -75,7 +75,7 @@ public class SimpleClient {
 	                else if(o instanceof Boolean) {
 	                	if((boolean)o == true) {
 	                		System.out.println("good");
-	                	}
+	                	} 
 	                	else {
 	                		System.out.println("bad");
 	                	}
