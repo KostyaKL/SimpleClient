@@ -12,11 +12,22 @@ import java.net.UnknownHostException;
 
 public class SimpleClient {
 
-
 	int port;
 	
+	String serverHostname;
+	
+	Socket echoSocket;
+    ObjectOutputStream outC;
+    ObjectInputStream inC;
+    
+    Object o;
+    
 	public SimpleClient() {
 		port = 12345;
+		serverHostname = new String("127.0.0.1");
+		echoSocket = null;
+        outC = null;
+        inC = null;
 	}
 	
 	public static void main(String[] args) {
@@ -27,16 +38,7 @@ public class SimpleClient {
 	public void run() {
 		
 			try {
-	            String serverHostname = new String("127.0.0.1");
-	 
-	            System.out.println("Connecting to host " + serverHostname + " on port " + port + ".");
-	 
-	            Socket echoSocket = null;
-	            ObjectOutputStream outC = null;
-	            ObjectInputStream inC = null;
-	            
-	            Object o;
-	 
+    	 
 	            try {
 	                echoSocket = new Socket(serverHostname, port);
 	                outC = new ObjectOutputStream(echoSocket.getOutputStream());
